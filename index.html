@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Bienvenido</h2>
+
+<p>Por favor, ingrese sus datos:</p>
+
+Nombre: <input type="text" id="nombre" name="nombre"><br>
+Fecha de nacimiento: <input type="date" id="fechaNacimiento" name="fechaNacimiento"><br>
+<button onclick="mostrarMensaje()">Enviar</button>
+
+<p id="mensaje"></p>
+
+<script>
+function mostrarMensaje() {
+  var nombre = document.getElementById("nombre").value;
+  var fechaNacimiento = new Date(document.getElementById("fechaNacimiento").value);
+  var hoy = new Date();
+  var edadEnMilisegundos = hoy - fechaNacimiento;
+  var edadEnDias = Math.floor(edadEnMilisegundos / (1000 * 60 * 60 * 24));
+  
+  document.getElementById("mensaje").innerHTML = "¡Hola, " + nombre + "! Has vivido " + edadEnDias + " días desde tu nacimiento.";
+}
+</script>
+
+</body>
+</html>
